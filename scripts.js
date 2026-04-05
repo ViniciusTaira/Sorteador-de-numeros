@@ -1,4 +1,5 @@
 const button = document.querySelector("button")
+const paragrafoAlert = document.querySelector(".alert")
 
 
 function generateNumber() {
@@ -7,8 +8,16 @@ function generateNumber() {
 
     const result = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const inputResult = document.querySelector(".input-result")
-    inputResult.value = (result)
+    
+    
+
+    if (min >= max) {
+        paragrafoAlert.textContent = "O valor mínimo precisa ser menor que o valor máximo"
+    } else {
+        const inputResult = document.querySelector(".input-result")
+        inputResult.value = (result)
+        paragrafoAlert.innerHTML = ""
+    }
 }
 
 button.addEventListener("click",generateNumber)
